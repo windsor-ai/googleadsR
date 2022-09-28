@@ -1,8 +1,8 @@
 ---
-title: "Basic work with WindsoraiR"
+title: "Basic work with googleadsR"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Basic work with WindsoraiR}
+  %\VignetteIndexEntry{Basic work with googleadsR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -28,7 +28,7 @@ After we create an account at Windsor.ai and obtain an API key, collecting our d
 ```{r, eval = FALSE}
 library(googleadsR)
 my_data_googleads <- 
-  windsor_fetch_googleadsR(
+  windsor_fetch_googleAds(
   api_key = "your api key",
   date_preset = "last_7d",
   fields = c("source", "campaign", "clicks",
@@ -36,7 +36,7 @@ my_data_googleads <-
 )
 ```
 
-Lets take a peek at the data we just downloaded to get a better idea about the structure and type of information included. 
+Lets take a look at the data we just downloaded to get a better idea about the structure and type of information included. 
 
 ```{r, echo = FALSE}
 library(googleadsR)
@@ -48,7 +48,7 @@ str(my_data_googleads)
 
 ## Analyzing our Facebook  and Google ad campaign data 
 
-First, lets try to find the campaigns with most clicks. To do this, we'll filter only those rows that have clicks, then group the dataset by campaign (`data.campaign` column) and sum up the click count per campaign.
+First, lets try to find the campaigns with most clicks. To do this, we'll filter only those rows that have clicks, then group the dataset by campaign (`campaign` column) and sum up the click count per campaign.
 
 ```{r}
 library(dplyr)
@@ -56,9 +56,9 @@ library(ggplot2)
 
 top_10 <- 
   my_data_googleads %>% 
-  filter(data.clicks > 0) %>% 
-  group_by(data.campaign) %>% 
-  summarise(n_clicks = sum(data.clicks)) %>% 
+  filter(clicks > 0) %>% 
+  group_by(campaign) %>% 
+  summarise(n_clicks = sum(clicks)) %>% 
   ungroup %>% 
   arrange(desc(n_clicks)) %>% 
   slice_head(n = 10)
@@ -69,21 +69,21 @@ knitr::kable(top_10)
 Thereafter we can quickly visualize our data using `ggplot2`
 
 ```{r, fig.width=7}
-ggplot(top_10, aes(x = n_clicks, y = data.campaign)) +
+ggplot(top_10, aes(x = n_clicks, y = campaign)) +
   geom_col()
 ```
 
-We can apply the same type of data manipulation and plotting to check the `data.spend` values.
+We can apply the same type of data manipulation and plotting to check the `spend` values.
 
 ```{r, fig.width= 7}
 my_data_googleads %>%
-  filter(data.clicks > 0) %>%
-  group_by(data.campaign) %>%
-  summarise(sum_spend = sum(as.numeric(data.spend))) %>%
+  filter(clicks > 0) %>%
+  group_by(campaign) %>%
+  summarise(sum_spend = sum(as.numeric(spend))) %>%
   ungroup %>%
   arrange(desc(sum_spend)) %>%
   slice_head(n = 10) %>%
-  ggplot(aes(x = sum_spend, y = data.campaign)) +
+  ggplot(aes(x = sum_spend, y = campaign)) +
   geom_col()
 ```
 
@@ -93,13 +93,13 @@ Finally, for a direct comparison, we can aggregate both the clicks and spending 
 library(tidyr)
 
 my_data_googleads %>%
-  filter(data.clicks > 0) %>%
-  group_by(data.campaign) %>%
-  summarise(n_clicks = sum(data.clicks), sum_spend = sum(as.numeric(data.spend))) %>%
+  filter(clicks > 0) %>%
+  group_by(campaign) %>%
+  summarise(n_clicks = sum(clicks), sum_spend = sum(as.numeric(spend))) %>%
   arrange(desc(sum_spend)) %>%
   slice_head(n = 10) %>%
   pivot_longer(cols = c("n_clicks", "sum_spend"), names_to = "aggreg", values_to = "values") %>%  
-  ggplot(aes(x = values, y = data.campaign, fill = aggreg)) +
+  ggplot(aes(x = values, y = campaign, fill = aggreg)) +
   geom_col() +
   facet_wrap("aggreg", ncol = 2) + 
   theme(legend.position="bottom")

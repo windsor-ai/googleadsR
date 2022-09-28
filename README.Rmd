@@ -25,7 +25,7 @@ The goal of `googleadsR` is to help `R` users to access google Ads data via `Win
 
 ## Installation
 
-You can install the released version of windsoraiR with:
+You can install the released version of googleadsR with:
 
 ```r
 # install.packages("remotes")

@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# windsoraiR
+# googleadsR
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of `windsoraiR` is to help `R` users to access the `Windsor.ai`
-`API` in a convenient way from `R`
+The goal of `googleadsR` is to help `R` users to access google Ads data
+via `Windsor.ai` `API` in a convenient way from `R`
 
 [Windsor.ai](https://www.windsor.ai/) allows to get marketing data from
 any platform. It beautifully simplifies the complexity of dealing with
@@ -17,79 +17,22 @@ that matters to you. For more details checkout
 
 ## Installation
 
-You can install the released version of windsoraiR from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("windsoraiR")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the released version of googleadsR with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("windsor-ai/windsoraiR")
+remotes::install_github("windsor-ai/googleadsR")
 ```
 
 ## Features
 
--   Easy access to marketing data via windsor.ai APIs
+-   Easy access to google Ads marketing data via windsor.ai APIs
 
 -   Lightweight (single dependency - `jsonlite`)
 
 ## Supported marketing and platforms
 
--   Google Analytics
-
 -   Google Ads
-
--   Facebook Ads
-
--   Facebook organic
-
--   Bing Ads
-
--   Linkedin Ads
-
--   Hubspot
-
--   Salesforce
-
--   Google search console
-
--   Criteo
-
--   Snapchat
-
--   Tiktok
-
--   Appnexus
-
--Campaign Manager
-
--   Twitter
-
--   Awin
-
--   Adroll
-
--   Shopify
-
--   Klaviyo
-
--   Airtable
-
--   Intercom
-
--   Zoho
-
--   Idealo
-
--   Pinterest
-
--   Appsflyer
-
--   Adobe
 
 ## Usage
 
@@ -102,31 +45,28 @@ and this article. Get the API key at <https://onboard.windsor.ai>
 
 ### Minimal Example
 
-The package currently has only one function `windsor_fetch` which will
-return a `data.frame` provided that all of the arguments are supplied to
-it:
+The package currently has only one function `windsor_fetch_googleadsR`
+which will return a `data.frame` provided that all of the arguments are
+supplied to it:
 
 -   your API key,
--   the connector,
 -   date range,
 -   and fields you require.
 
 Running:
 
 ``` r
-winsdor_data <- windsor_fetch(api_key = "your api key",
- connector = "all",
+winsdor_data_googleads <- windsor_fetch_googleadsR(api_key = "your api key",
  date_preset = "last_7d",
  fields = c("source", "campaign", "clicks",
             "medium", "sessions", "spend"))
             
 ```
 
-Will return a `data.frame` from the connector `all` that blends all data
-from the platforms you have connected.
+Will return a `data.frame` with google Ads marketing data.
 
 ``` r
-glimpse(winsdor_data)
+glimpse(winsdor_data_googleads)
 
 Rows: 140
 Columns: 6
