@@ -9,7 +9,7 @@
 The goal of `googleadsR` is to help `R` users to access google Ads data
 via `Windsor.ai` `API` in a convenient way from `R`
 
-[Windsor.ai](https://www.windsor.ai/) allows to get marketing data from
+[Windsor.ai](https://windsor.ai/) allows to get marketing data from
 any platform. It beautifully simplifies the complexity of dealing with
 multiple platforms, unlocking unified, valuable information in a format
 that matters to you. For more details checkout
@@ -79,4 +79,4 @@ $ googlesheets  <chr> "'spreadsheet_id'", "'spreadshe…
 ```
 
 For more details see the API documentation at
-<https://www.windsor.ai/api-fields/>.
+<https://windsor.ai/api-fields/>.
