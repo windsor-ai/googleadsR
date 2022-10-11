@@ -29,7 +29,8 @@ Fetch data from google Ads via windsor.ai API
 }
 \examples{
 \dontrun{
-windsor_fetch <- (api_key = "your api key",
+# api_key needs to be provided by the user.
+my_googleads_data <- windsor_fetch_googleAds(api_key = "your api key",
 date_preset = "last_7d",
 fields = c("source", "campaign", "clicks",
            "medium", "sessions", "spend"))
