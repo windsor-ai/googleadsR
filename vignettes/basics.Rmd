@@ -46,7 +46,7 @@ library(googleadsR)
 str(my_data_googleads)
 ```
 
-## Analyzing our Facebook  and Google ad campaign data 
+## Analyzing our Google ad campaign data 
 
 First, lets try to find the campaigns with most clicks. To do this, we'll filter only those rows that have clicks, then group the dataset by campaign (`campaign` column) and sum up the click count per campaign.
 
