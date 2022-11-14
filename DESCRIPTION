@@ -1,7 +1,7 @@
 Type: Package
 Package: googleadsR
 Title: Access to 'Google Ads' via the 'Windsor.ai' API 
-Version: 0.1.2
+Version: 1.0.0
 Authors@R: 
     c(person(given = "Pablo",
              family = "Sanchez",
