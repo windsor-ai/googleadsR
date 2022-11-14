@@ -18,7 +18,7 @@ load(file = "my_data_googleads.rda")
 
 ## Goal
 
-The goal here is to outline in a couple of paragraphs and few lines of code some simple ways in which we can use the [Windsor.ai](https://windsor.ai/) API and `R` package `googleadsR` to gain insights into marketing campaign performance in Google Ads. The nice thing about Windsor.ai is that you can have all of your marketing channels aggregating in a single place and then access all data at once using this package. In this case, however, the package is focused on getting data from Google Ads campaings. Of course, once the data is in `R` you can do much more than the examples below, and work on analysis, predictions or dashboards.
+The goal here is to outline in a couple of paragraphs and few lines of code some simple ways in which we can use the [Windsor.ai](https://windsor.ai/) API and `R` package `googleadsR` to gain insights into marketing campaign performance in Google Ads. The nice thing about Windsor.ai is that you can have all of your marketing channels aggregating in a single place and then access all data at once using this package. In this case, however, the package is focused on getting data from Google Ads campaigns. Of course, once the data is in `R` you can do much more than the examples below, and work on analysis, predictions or dashboards.
 
 ## Getting data from Google ads into R
 
@@ -28,11 +28,8 @@ After we create an account at Windsor.ai and obtain an API key, collecting our d
 ```{r, eval = FALSE}
 library(googleadsR)
 my_data_googleads <- 
-  windsor_fetch_googleAds(
-  api_key = "your api key",
-  date_preset = "last_7d",
-  fields = c("source", "campaign", "clicks",
-             "medium", "sessions", "spend")
+  fetch_googleads(
+  api_key = "your api key")
 )
 ```
 

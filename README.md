@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of `googleadsR` is to help `R` users to access google Ads data
+The goal of `googleadsR` is to help `R` users to access Google Ads data
 via `Windsor.ai` `API` in a convenient way from `R`
 
 [Windsor.ai](https://windsor.ai/) allows to get marketing data from
@@ -17,7 +17,7 @@ that matters to you. For more details checkout
 
 ## Installation
 
-You can install the released version of googleadsR with:
+You can install the released version of `googleadsR` with:
 
 ``` r
 # install.packages("remotes")
@@ -26,7 +26,7 @@ remotes::install_github("windsor-ai/googleadsR")
 
 ## Features
 
--   Easy access to google Ads marketing data via windsor.ai APIs
+-   Easy access to Google Ads marketing data via windsor.ai APIs
 
 -   Lightweight (single dependency - `jsonlite`)
 
@@ -45,7 +45,7 @@ and this article. Get the API key at <https://onboard.windsor.ai>
 
 ### Minimal Example
 
-The package currently has only one function `windsor_fetch_googleadsR`
+The package currently has only one function `fetch_googleads`
 which will return a `data.frame` provided that all of the arguments are
 supplied to it:
 
@@ -56,17 +56,14 @@ supplied to it:
 Running:
 
 ``` r
-winsdor_data_googleads <- windsor_fetch_googleadsR(api_key = "your api key",
- date_preset = "last_7d",
- fields = c("source", "campaign", "clicks",
-            "medium", "sessions", "spend"))
+my_googleads_data <- fetch_googleads(api_key = "your api key")
             
 ```
 
-Will return a `data.frame` with google Ads marketing data.
+Will return a `data.frame` with Google Ads marketing data.
 
 ``` r
-glimpse(winsdor_data_googleads)
+glimpse(my_googleads_data)
 
 Rows: 140
 Columns: 6

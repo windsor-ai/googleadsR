@@ -1,6 +1,6 @@
 Type: Package
 Package: googleadsR
-Title: Access to Google Ads via the 'Windsor.ai' API 
+Title: Access to 'Google Ads' via the 'Windsor.ai' API 
 Version: 0.1.2
 Authors@R: 
     c(person(given = "Pablo",
@@ -10,7 +10,7 @@ Authors@R:
       person(given = "Windsor.ai",
              role = "cph", 
              email = "admin@windsor.ai"))
-Description: Collect  marketing data from google Ads using the 'Windsor.ai' API <https://windsor.ai/api-fields/>.
+Description: Collect  marketing data from 'Google Ads' using the 'Windsor.ai' API <https://windsor.ai/api-fields/>.
 License: MIT + file LICENSE
 Depends:
     R (>= 2.10)
